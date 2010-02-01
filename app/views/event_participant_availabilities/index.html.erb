@@ -1,0 +1,18 @@
+<h1>Listing event_participant_availabilities</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @event_participant_availabilities.each do |event_participant_availability| %>
+  <tr>
+    <td><%= link_to 'Show', event_participant_availability %></td>
+    <td><%= link_to 'Edit', edit_event_participant_availability_path(event_participant_availability) %></td>
+    <td><%= link_to 'Destroy', event_participant_availability, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New event_participant_availability', new_event_participant_availability_path %>

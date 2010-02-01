@@ -1,0 +1,60 @@
+<% f.fields_for :member do |m| %>
+<div class="left_col">
+  <p>
+    <%= m.label :first_name, :first_name.to_s.titleize %><br />
+    <%= m.text_field :first_name %>
+  </p>
+  <p>
+    <%= m.label :last_name, :last_name.to_s.titleize  %><br />
+    <%= m.text_field :last_name %>
+  </p>
+  <p>
+    <%= m.label :email %>*<br />
+    <%= m.text_field :email, :class => 'writer' %>
+  </p>
+  <p>
+    <%= m.label :phone_number1, 'Mobile Number' %><br />
+    <%= m.text_field :phone_number1 %>
+  </p>
+  <p>
+    <%= m.label :phone_number2, 'Home Number' %><br />
+    <%= m.text_field :phone_number2 %>
+  </p>
+</div>
+
+<div class="right_col">
+  <% unless @team.id %>
+  <p>
+    <%= m.label :team_ids, 'Choose Teams' %><br />
+    <% @teams.each do |t| %>
+    <label><%= check_box_tag "member[team_ids][]", t.id, user_has_team?(t) %> <%= t.name %><br />
+    <% end %>
+  </p>
+
+  <% else %>
+  <p>
+    <label>Team:</label> <%= @team.name %>
+    <%= m.hidden_field :team_ids, :value => params[:team_id] %>
+  </p>
+  <% end %>
+
+  <% m.fields_for :member_attributes do |a| %>
+  <p>
+    <%= a.hidden_field :name, :value => 'ntrp_level' %>
+    <%= a.label :value, 'NTRP Level' %><br />
+    <%= a.text_field :value, :style => 'width: 40px; text-align: center;' %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :login, "Username" %><br />
+    <%= f.text_field :login, :readonly => true, :class => 'writee' %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  <p>
+    <%= f.label :password_confirmation, 'Confirm Password' %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+</div>
+<% end %><br clear="all" />

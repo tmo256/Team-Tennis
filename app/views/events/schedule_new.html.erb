@@ -1,0 +1,11 @@
+<h1>Schedule Players for <%= @event.scheduled_date.to_formatted_s(:short) %></h1>
+
+<% form_for :event,  @event, :url => create_schedule_event_path(@event), :html => { :class => 'new_schedule' } do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'schedule', :locals => {:f => f} %>
+
+<p>
+  <%= f.submit 'Update' %>
+</p>
+<% end %>

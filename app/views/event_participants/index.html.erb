@@ -1,0 +1,46 @@
+<h1><%= @team.name %> Schedule</h1>
+
+<% @events.each do |e| %>
+<div class="<%= cycle( 'odd_b', 'even_b') %>">
+<h5 class="match">
+  <span>Match:</span> <%= e.scheduled_date.to_formatted_s( :medium ) %> &middot;
+  <%= link_to "Schedule", schedule_event_path(e.id) %>
+</h5>
+
+<table class="compact half_t">
+  <tr>
+    <th>Scheduled Players</th>
+  </tr>
+  <% if e.event_participants.length < 1 %>
+  <tr>
+    <td><div class="na">No players scheduled.</div></td>
+  </tr>
+  <% end %>
+
+  <% e.event_participants.each do |ep| %>
+  <tr>
+    <td><%= ep.member.full_name %></td>
+    <td><%= ep.event_participant_atts.first.value %></td>
+  </tr>
+  <% end %>
+</table>
+
+<table class="compact half_t" style="margin-right: 0px;">
+  <tr>
+    <th>Available Players: <%= e.members.length %></th>
+  </tr>
+  <% if e.members.length < 1 %>
+  <tr>
+    <td><div class="na">No players available.</div></td>
+  </tr>
+  <% end %>
+
+  <% e.members.each do |m| %>
+  <tr>
+    <td><%= m.full_name %></td>
+    <td><%= m.member_attributes.find( :first, :conditions => "name = 'ntrp_level' and member_id = #{m.id}" ).value %></td>
+  </tr>
+  <% end %>
+</table><br clear="all" />
+</div>
+<% end %>

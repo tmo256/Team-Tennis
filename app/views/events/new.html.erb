@@ -1,0 +1,11 @@
+<h1>Create a New Match</h1>
+
+<% form_for :event, @event, :url => team_events_path(params[:team_id]) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p>
+    <%= f.submit 'Create' %> or <%= link_to 'Cancel', team_events_path(params[:team_id]) %>
+  </p>
+<% end %>

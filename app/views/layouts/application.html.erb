@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>TeamTrack: <%= controller.controller_name.titleize %>: <%= controller.action_name.titleize %></title>
+  <%= javascript_include_tag 'jquery', 'jquery-ui', 'timepicker', 'application', :cached => true %>
+  <%= stylesheet_link_tag 'jquery', 'application', :cached => true %>
+</head>
+<body>
+
+<div id="header"></div>
+
+<div id="logo_pic"></div>
+<div id="logo"></div>
+
+<div id="header_links">
+  <a href="" id="logout">logout</a> &nbsp;
+  <a href="" id="profile">profile</a>
+</div>
+
+<div id="main_nav">
+<div id="inner_nav">
+  <div class="nav">My Teams</div>
+  <div class="nav" id="active">My Schedule</div>
+  <div class="nav">Team Schedule</div>
+</div>
+</div>
+
+<div id="container">
+
+  <div id="content">
+
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <%= yield %>
+
+  </div>
+</div>
+<!-- <div id="container_bg"></div> -->
+
+</body>
+</html>

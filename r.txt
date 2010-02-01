@@ -1,0 +1,50 @@
+(in /Users/mariateresamolina/Sites/team)
+        event_event_attributes GET    /events/:event_id/event_attributes(.:format)         {:action=>"index", :controller=>"event_attributes"}
+                               POST   /events/:event_id/event_attributes(.:format)         {:action=>"create", :controller=>"event_attributes"}
+     new_event_event_attribute GET    /events/:event_id/event_attributes/new(.:format)     {:action=>"new", :controller=>"event_attributes"}
+          edit_event_attribute GET    /event_attributes/:id/edit(.:format)                 {:action=>"edit", :controller=>"event_attributes"}
+               event_attribute GET    /event_attributes/:id(.:format)                      {:action=>"show", :controller=>"event_attributes"}
+                               PUT    /event_attributes/:id(.:format)                      {:action=>"update", :controller=>"event_attributes"}
+                               DELETE /event_attributes/:id(.:format)                      {:action=>"destroy", :controller=>"event_attributes"}
+                   team_events GET    /teams/:team_id/events(.:format)                     {:action=>"index", :controller=>"events"}
+                               POST   /teams/:team_id/events(.:format)                     {:action=>"create", :controller=>"events"}
+                new_team_event GET    /teams/:team_id/events/new(.:format)                 {:action=>"new", :controller=>"events"}
+                    edit_event GET    /events/:id/edit(.:format)                           {:action=>"edit", :controller=>"events"}
+                schedule_event GET    /events/:id/schedule(.:format)                       {:action=>"schedule", :controller=>"events"}
+         create_schedule_event POST   /events/:id/create_schedule(.:format)                {:action=>"create_schedule", :controller=>"events"}
+         update_schedule_event PUT    /events/:id/update_schedule(.:format)                {:action=>"update_schedule", :controller=>"events"}
+                         event GET    /events/:id(.:format)                                {:action=>"show", :controller=>"events"}
+                               PUT    /events/:id(.:format)                                {:action=>"update", :controller=>"events"}
+                               DELETE /events/:id(.:format)                                {:action=>"destroy", :controller=>"events"}
+   team_event_participant_atts GET    /teams/:team_id/event_participant_atts(.:format)     {:action=>"index", :controller=>"event_participant_atts"}
+                               POST   /teams/:team_id/event_participant_atts(.:format)     {:action=>"create", :controller=>"event_participant_atts"}
+new_team_event_participant_att GET    /teams/:team_id/event_participant_atts/new(.:format) {:action=>"new", :controller=>"event_participant_atts"}
+    edit_event_participant_att GET    /event_participant_atts/:id/edit(.:format)           {:action=>"edit", :controller=>"event_participant_atts"}
+         event_participant_att GET    /event_participant_atts/:id(.:format)                {:action=>"show", :controller=>"event_participant_atts"}
+                               PUT    /event_participant_atts/:id(.:format)                {:action=>"update", :controller=>"event_participant_atts"}
+                               DELETE /event_participant_atts/:id(.:format)                {:action=>"destroy", :controller=>"event_participant_atts"}
+       team_event_participants GET    /teams/:team_id/event_participants(.:format)         {:action=>"index", :controller=>"event_participants"}
+               new_user_member GET    /users/:user_id/member/new(.:format)                 {:action=>"new", :controller=>"members"}
+              edit_user_member GET    /users/:user_id/member/edit(.:format)                {:action=>"edit", :controller=>"members"}
+                   user_member GET    /users/:user_id/member(.:format)                     {:action=>"show", :controller=>"members"}
+                               PUT    /users/:user_id/member(.:format)                     {:action=>"update", :controller=>"members"}
+                               DELETE /users/:user_id/member(.:format)                     {:action=>"destroy", :controller=>"members"}
+                               POST   /users/:user_id/member(.:format)                     {:action=>"create", :controller=>"members"}
+                    team_users GET    /teams/:team_id/users(.:format)                      {:action=>"index", :controller=>"users"}
+                               POST   /teams/:team_id/users(.:format)                      {:action=>"create", :controller=>"users"}
+                 new_team_user GET    /teams/:team_id/users/new(.:format)                  {:action=>"new", :controller=>"users"}
+                     edit_user GET    /users/:id/edit(.:format)                            {:action=>"edit", :controller=>"users"}
+  edit_event_availability_user GET    /users/:id/edit_event_availability(.:format)         {:action=>"edit_event_availability", :controller=>"users"}
+       event_availability_user PUT    /users/:id/event_availability(.:format)              {:action=>"event_availability", :controller=>"users"}
+                          user GET    /users/:id(.:format)                                 {:action=>"show", :controller=>"users"}
+                               PUT    /users/:id(.:format)                                 {:action=>"update", :controller=>"users"}
+                               DELETE /users/:id(.:format)                                 {:action=>"destroy", :controller=>"users"}
+                         teams GET    /teams(.:format)                                     {:action=>"index", :controller=>"teams"}
+                               POST   /teams(.:format)                                     {:action=>"create", :controller=>"teams"}
+                      new_team GET    /teams/new(.:format)                                 {:action=>"new", :controller=>"teams"}
+                     edit_team GET    /teams/:id/edit(.:format)                            {:action=>"edit", :controller=>"teams"}
+                          team GET    /teams/:id(.:format)                                 {:action=>"show", :controller=>"teams"}
+                               PUT    /teams/:id(.:format)                                 {:action=>"update", :controller=>"teams"}
+                               DELETE /teams/:id(.:format)                                 {:action=>"destroy", :controller=>"teams"}
+                                      /:controller/:action/:id                             
+                                      /:controller/:action/:id(.:format)                   

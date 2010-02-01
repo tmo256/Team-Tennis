@@ -1,0 +1,12 @@
+<h1><%= @user.member.full_name %></h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p class="new">
+    <%= f.submit %> or 
+    <%= link_to 'Cancel', user_path(@user) %>
+  </p>
+<% end %>

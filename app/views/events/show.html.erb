@@ -1,0 +1,11 @@
+<h1>Match Players</h1>
+<h2><%= h @event.scheduled_date %></h2>
+<p>
+  Match: <%= h @event.title %><br />
+  Location: <%= h @event.location %><br />
+  <% if @event.notes? %> Notes: <%= h @event.notes %><% end %>
+</p>
+<div class="new">
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', team_path(@event.team_id) %>
+</div>

@@ -1,0 +1,29 @@
+<h1><%= @user.member.full_name %></h1>
+
+<% @teams.each do |t| %>
+<% form_for @user.member, :url => event_availability_user_path(@user) do |f| %>
+<%= hidden_field_tag "member[id]", f.object.id %>
+<table>
+<tr>
+  <th colspan="3" style="text-align: left; line-height: 1px;"><h4>Team: <%= t.name %></h4></th>
+</tr>
+<tr>
+  <th>Match Location</th>
+  <th>Match Date</th>
+  <th>Available</th>
+</tr>
+<% t.events.each do |e| %>
+<tr class="<%= cycle( 'odd', 'even' ) %>">
+  <td><%=h e.location %></td>
+  <td><%=h e.scheduled_date.to_formatted_s(:medium) %></td>
+
+  <td style="text-align:center"><%= check_box_tag "member[event_ids][]", e.id, user_has_event?(e) %></td>
+
+</tr>
+<% end %>
+</table>
+
+  <br />
+  <div class="new"><%= f.submit 'Update' %></div>
+<% end %>
+<% end %>

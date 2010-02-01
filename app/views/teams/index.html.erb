@@ -1,0 +1,25 @@
+<h1>All Teams</h1>
+
+<p class="new"><%= link_to '<img src="/images/icons/plus_24.png" title="Add New Team" alt="Add New Team" /> Add New Team', new_team_path %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lead</th>
+    <th>Description</th>
+    <th>Creator</th>
+    <th>Actions</th>
+  </tr>
+
+<% @teams.each do |team| %>
+  <tr class="<%= cycle( 'odd','even' )%>">
+    <td><%=h team.name %></td>
+    <td><%=h team.lead %></td>
+    <td><%=h team.description %></td>
+    <td><%=h team.user_id %></td>
+    <td align="center"><%= link_to '<img src="/images/icons/document_24.png" />', team %>
+        <%= link_to '<img src="/images/icons/pencil_24.png" />', edit_team_path(team) %>
+        <%= link_to '<img src="/images/icons/trash_24.png" />', team, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

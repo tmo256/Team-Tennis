@@ -1,0 +1,11 @@
+<h1>New event_participant_availability</h1>
+
+<% form_for(@event_participant_availability) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', event_participant_availabilities_path %>

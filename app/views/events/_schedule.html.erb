@@ -1,0 +1,26 @@
+
+<% if @event.members.length < 1 %>
+No players have scheduled availability for this match.
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Available Players</th>
+    <th>Level</th>
+    <th>Court Assignment</th>
+  </tr>
+  <% f.fields_for :event_participants do |e|%>
+  <tr class="<%= cycle( 'odd', 'even' ) %>">
+
+    <td><%= e.object.member.full_name %><%= e.hidden_field :member_id %></td>
+    <td><%= e.object.member.member_attributes.find( :first, :conditions => 'name = "ntrp_level"' ).value %></td>
+    <% e.fields_for :event_participant_atts do |a|%>
+    <td style="text-align: center">
+      <%= a.hidden_field :name, :value => 'court_no' %>
+      <%= a.select(:value, options_for_select( [ '1','2','3','4','5',"Substitute" ], a.object.value ), {:include_blank => 'Unassigned' }) %>
+    </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

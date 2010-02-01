@@ -1,0 +1,23 @@
+<h1><%= @team.name %> Matches</h1>
+
+<div class="new"><%= link_to 'Add a New Match', new_team_event_path( params[:team_id] ) %></div>
+
+<table>
+  <tr>
+    <th>Opponent</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr class="<%= cycle( 'even', 'odd' ) %>">
+    <td><%= h event.title %></td>
+    <td><%= h event.location %></td>
+    <td><%= h event.scheduled_date %></td>
+    <td><%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Schedule', schedule_event_path(event) %></td>
+  </tr>
+<% end %>
+</table>

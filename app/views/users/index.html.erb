@@ -1,0 +1,48 @@
+<h1><%=h @team.name %></h1>
+
+<p>
+  Captains:
+  <b><%=h @team.lead %></b>
+</p>
+
+<p>
+  Description:
+  <b><%=h @team.description %></b>
+</p>
+
+<div class="new">
+  <%= link_to 'Schedule Matches', team_event_participants_path(@team) %> |
+  <%= link_to '+ Add A New Player', new_team_user_path(@team) %>
+</div>
+<!--<p>
+  Creator:
+  <b><%=h User.find( @team.user_id, :include => :member ).member.full_name %></b>
+</p>-->
+
+<table class="half_t">
+<tr>
+  <th>Player</th>
+  <th>Level</th>
+</tr>
+<% @users.each do |u| %>
+<tr class="<%= cycle( 'odd','even') %>">
+  <td><%= link_to u.member.full_name, edit_event_availability_user_path( u ) %></td>
+  <td><%=h u.member.member_attributes.find( :first, :conditions => "name = 'ntrp_level' and member_id = #{u.member.id}" ).value %></td>
+</tr>
+<% end %>
+</table>
+
+<table class="half_t" style="margin-right: 0px;">
+<tr>
+  <th>Matches</th>
+  <th>Location</th>
+</tr>
+<% @events.each do |e| %>
+<tr class="<%= cycle( 'odd','even') %>">
+  <td><nobr><%=h e.scheduled_date.to_formatted_s(:medium) %></nobr></td>
+  <td><%=h e.location %></td>
+</tr>
+<% end %>
+</table>
+
+

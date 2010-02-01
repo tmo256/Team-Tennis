@@ -1,0 +1,13 @@
+<h1>Edit a Match</h1>
+
+<% form_for(@event) do |f| %>
+  <%= f.error_messages %>
+
+  <div style="width: 85%; margin-left: 10%;">
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  </div>
+
+  <p class="new">
+    <%= f.submit 'Update' %> or <%= link_to 'Cancel', team_events_path( @event.team_id ) %>
+  </p>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  login: MyString
+  password: MyString
+  persistence_token: MyString
+  login_count: 1
+  last_request_at: 2009-10-03 10:40:06
+  last_login_at: 2009-10-03 10:40:06
+  current_login_at: 2009-10-03 10:40:06
+
+two:
+  login: MyString
+  password: MyString
+  persistence_token: MyString
+  login_count: 1
+  last_request_at: 2009-10-03 10:40:06
+  last_login_at: 2009-10-03 10:40:06
+  current_login_at: 2009-10-03 10:40:06
